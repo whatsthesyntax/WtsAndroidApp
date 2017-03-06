@@ -6,10 +6,13 @@ import { NavController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
 export class HomePage {
 
+  logowts = "./assets/logo.png";
+  public name;
   constructor(public navCtrl: NavController) {
-
+    this.name = "Andrew";
   }
 
 }
