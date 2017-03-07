@@ -1,0 +1,27 @@
+<!--
+  Generated template for the Accueil page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header class="myionheader">
+  <ion-navbar>
+    <ion-title>
+          <div class="myheader topnav">
+            <img id="logo" src={{logowts}} class="img-responsive" width="50" height="50"/>
+            What's The Syntax ?
+            <p>
+              <a><img src={{iconaccueil}} width="30" height="30"/></a>
+              <a (click)="javaf()"><img src={{iconjava}} width="30" height="30"/></a>
+              <a (click)="phpf()"><img src={{iconphp}} width="30" height="30"/></a>
+              <a (click)="csharpf()"><img src={{iconcsharp}} width="30" height="30"/></a>
+            </p>
+          </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <page-searcharea></page-searcharea>
+</ion-content>

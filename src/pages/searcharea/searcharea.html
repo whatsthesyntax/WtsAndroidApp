@@ -1,0 +1,18 @@
+<div class="mysearch">
+<table>
+ <tr>
+     <td><input type="image"  src={{iconsearch}} alt="Submit" width="20" height="20"></td>
+     <td><input type="text" class="mytextsearch" class="form-control" #newTags placeholder="Recherchez une syntaxe ..."></td>
+ </tr>
+</table>
+</div>
+<div *ngIf="showSearchResult" class="listcode">
+  <ul class="sanspuce">
+    <li *ngFor="let code of codes">
+      <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
+      <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value,code.codeId); newCodeSelect.value='';" type="button">
+        <span class="glyphicon glyphicon glyphicon-eye-open"></span>
+      </button>
+    </li>
+  </ul>
+</div>
