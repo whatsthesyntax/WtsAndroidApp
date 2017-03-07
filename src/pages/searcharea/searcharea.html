@@ -11,8 +11,8 @@
      <li *ngFor="let code of codes">
        <table>
         <tr>
-          <input type="image"  src={{iconoeil}} (click)="seeCode(newCodeSelect.value, code.langage.langage); newCodeSelect.value=''" width="30" height="30">
-          <textarea rows="3" cols="27" id="code" #newCodeSelect value="{{code.code}}" readonly></textarea>
+          <td><input type="image"  src={{iconoeil}} (click)="seeCode(newCodeSelect.value, code.langage.langage); newCodeSelect.value=''" width="30" height="30"></td>
+          <td><textarea rows="3" cols="27" id="code" #newCodeSelect value="{{code.code}}" readonly></textarea></td>
         </tr>
        </table>
      </li>
