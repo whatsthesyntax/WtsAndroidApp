@@ -1,3 +1,135 @@
 page-seecode {
+  .mysearch{
+      padding-top: 80px;
+      padding-right: 150px;
+      padding-bottom: 220px;
+      padding-left: 20px;
+  }
 
+  .sanspuce {
+     list-style-type:none;
+  }
+
+  .listcode {
+      padding-bottom: 20px;
+  }
+
+  input.mytextsearch
+  {
+    height: 50px;
+    width: 270px;
+  }
+  .myheader{
+      background-color: rgb(51, 51, 51);
+      color: rgb(230, 230, 230);
+  }
+
+  .myref {
+    color: rgb(230, 230, 230);
+    font-size: 90%;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: rgb(51, 51, 51);
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+/*  .form-style-4{
+    width: 450px;
+    font-size: 16px;
+    background: rgb(51, 51, 51);
+    padding: 30px 30px 15px 30px;
+    border: 5px solid #53687E;
+}
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button],
+.form-style-4 input[type=password],
+.form-style-4 input[type=textarea],
+.form-style-4 input[type=email],
+.form-style-4 textarea,
+.form-style-4 label
+.form-style-4 select
+{
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: rgb(242, 242, 242);
+
+}
+.form-style-4 label {
+    display:block;
+    margin-bottom: 10px;
+}
+.form-style-4 label > span{
+    display: inline-block;
+    float: left;
+    width: 150px;
+}
+
+.form-style-4 input[type=text],
+.form-style-4 input[type=password],
+.form-style-4 input[type=textarea],
+.form-style-4 input[type=email]
+.form-style-4 select
+{
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    outline: none;
+    padding: 0px 0px 0px 0px;
+    font-style: italic;
+}
+.form-style-4 textarea
+.form-style-4 label
+{
+    font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    overflow: hidden;
+    resize:none;
+    height:20px;
+}
+
+.form-style-4 textarea:focus,
+.form-style-4 input[type=text]:focus,
+.form-style-4 input[type=email]:focus,
+.form-style-4 input[type=password],
+.form-style-4 input[type=username],
+.form-style-4 input[type=email]:focus
+.form-style-4 select
+{
+    border-bottom: 1px dashed #D9FFA9;
+}
+
+.form-style-4 input[type=submit],
+.form-style-4 input[type=button]{
+    background: #576E86;
+    border: none;
+    padding: 8px 10px 8px 10px;
+    border-radius: 5px;
+    color: #A8BACE;
+}
+.form-style-4 input[type=submit]:hover,
+.form-style-4 input[type=button]:hover{
+background: #394D61;
+}
+*/
 }

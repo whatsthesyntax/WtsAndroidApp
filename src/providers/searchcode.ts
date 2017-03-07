@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/catch';
+import { SearchReq } from '../searchreq';
 /*
   Generated class for the Searchcode provider.
 
@@ -10,9 +12,32 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class Searchcode {
-
+  /*Atrributs*/
+  sreq: SearchReq;
+  public headers = new Headers({"Content-Type": "application/json"});
+  public options = new RequestOptions({ headers: this.headers });
+  /*URLs*/
+  private userUrlGetCodes = 'http://localhost:8080/getCodes';
+  private userUrlGetCodesByLangage = 'http://localhost:8080/getCodes';
   constructor(public http: Http) {
     console.log('Hello Searchcode Provider');
   }
+  /*Search for codes*/
+  getCodes(searchreq:string){
+    let url = this.userUrlGetCodes+'/'+searchreq;
+    return this.http.get('./assets/codes.json')
+    .map(
+      (res) => res.json()
+    );
+  }
 
+  /*Search for codes by langage*/
+  getCodesByLangage(langage:string, searchreq:string){
+    this.sreq = new SearchReq(searchreq, langage);
+    let url = this.userUrlGetCodesByLangage+'/'+JSON.stringify(this.sreq);
+    return this.http.get('./assets/codes.json')
+    .map(
+      (res) => res.json()
+    );
+  }
 }

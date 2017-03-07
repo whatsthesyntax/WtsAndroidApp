@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/*
+import { NavController, NavParams } from 'ionic-angular';/*
   Generated class for the Seecode page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
@@ -13,10 +11,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SeecodePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  public code:string="";
+  public langage:string="";
+  logowts = "./assets/logo.png";
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SeecodePage');
+    this.code = this.navParams.get('code');
+    this.langage = this.navParams.get('langage').toUpperCase();
   }
 
 }

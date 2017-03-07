@@ -1,18 +1,25 @@
 <div class="mysearch">
 <table>
  <tr>
-     <td><input type="image"  src={{iconsearch}} alt="Submit" width="20" height="20"></td>
-     <td><input type="text" class="mytextsearch" class="form-control" #newTags placeholder="Recherchez une syntaxe ..."></td>
+     <td><input type="image"  src={{iconsearch}} alt="Submit" (click)="getCodesResult(newTags.value); newTags.value=''" width="30" height="30"></td>
+     <td><input type="text" class="mytextsearch" #newTags placeholder="Recherchez une syntaxe en C# ..."></td>
  </tr>
 </table>
-</div>
-<div *ngIf="showSearchResult" class="listcode">
-  <ul class="sanspuce">
-    <li *ngFor="let code of codes">
-      <textarea class="span6" rows="2" id="code" #newCodeSelect name="tags" class="form-control" value="{{code.code}}" readonly></textarea>
-      <button  class="btn btn-secondary" (click)="codeselection(newCodeSelect.value,code.codeId); newCodeSelect.value='';" type="button">
-        <span class="glyphicon glyphicon glyphicon-eye-open"></span>
-      </button>
-    </li>
-  </ul>
+<table>
+ <tr>
+   <ul *ngIf="showSearchResult" class="sanspuce">
+     <li *ngFor="let code of codes">
+       <table>
+        <tr>
+          <td><input type="image"  src={{iconoeil}} (click)="seeCode(newCodeSelect.value, code.langage.langage); newCodeSelect.value=''" width="30" height="30"></td>
+          <td><textarea rows="3" cols="27" id="code" #newCodeSelect value="{{code.code}}" readonly></textarea></td>
+        </tr>
+       </table>
+     </li>
+   </ul>
+ </tr>
+</table>
+<table>
+  <tr><input *ngIf="showSearchResult" type="button" class="bouton8" value="Nouvelle recherche" alt="Submit" (click)="reset()" width="30" height="30"></tr>
+</table>
 </div>

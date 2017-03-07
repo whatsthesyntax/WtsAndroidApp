@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
+import { NavController } from 'ionic-angular';
+import { Searchcode } from '../../providers/searchcode';
+import { SeecodePage } from '../seecode/seecode';
 /*
   Generated class for the Searcharea page.
 
@@ -9,17 +10,35 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
   selector: 'page-searcharea',
-  templateUrl: 'searcharea.html'
+  templateUrl: 'searcharea.html',
+  providers: [Searchcode]
 })
 export class SearchareaPage {
-
+  public seecode = SeecodePage;
   public showSearchResult = false;
   public codes = [];
   iconsearch = "./assets/iconsearch.png";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  iconoeil = "./assets/iconoeil.png";
+  constructor(public navCtrl: NavController,
+     private codeService: Searchcode) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchareaPage');
+  }
+
+  getCodesResult(searchreq){
+    let result = this.codeService.getCodes(searchreq);
+    this.showSearchResult = true;
+    result.subscribe((data) => this.codes=data);
+  }
+  reset(){
+    this.showSearchResult = false;
+    this.codes = [];
+  }
+
+  seeCode(codevalue:string, langagevalue:string){
+    this.reset();
+    this.navCtrl.push(SeecodePage, {code:codevalue, langage:langagevalue});
   }
 
 }
