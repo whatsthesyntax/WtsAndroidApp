@@ -17,16 +17,14 @@ export class Searchcode {
   public headers = new Headers({"Content-Type": "application/json"});
   public options = new RequestOptions({ headers: this.headers });
   /*URLs*/
-  private userUrlGetCodes = 'http://localhost:8080/getCodes';
-  private userUrlGetCodesByLangage = 'http://localhost:8080/getCodes';
+  private userUrlGetCodes = 'http://vps381611.ovh.net:8080/WTSAPI/search';
   constructor(public http: Http) {
     console.log('Hello Searchcode Provider');
   }
   /*Search for codes*/
   getCodes(searchreq:string){
-    let url = this.userUrlGetCodes+'/'+searchreq;
-    let headers = new Headers({"Content-Type": "text/plain"});
-    return this.http.get(url, {headers: headers})
+    let headersearch = new Headers({"Content-Type": "text/plain"});
+    return this.http.post(this.userUrlGetCodes, searchreq, {headers: headersearch})
     .map(
       (res) => res.json()
     );
@@ -34,9 +32,8 @@ export class Searchcode {
 
   /*Search for codes by langage*/
   getCodesByLangage(langage:string, searchreq:string){
-    let url = this.userUrlGetCodesByLangage+'/'+langage+" "+searchreq;
-    let headers = new Headers({"Content-Type": "text/plain"});
-    return this.http.get(url, {headers: headers})
+    let headersearch = new Headers({"Content-Type": "text/plain"});
+    return this.http.post(this.userUrlGetCodes, langage+" "+searchreq, {headers: headersearch})
     .map(
       (res) => res.json()
     );
