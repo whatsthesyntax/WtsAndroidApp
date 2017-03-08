@@ -25,7 +25,8 @@ export class Searchcode {
   /*Search for codes*/
   getCodes(searchreq:string){
     let url = this.userUrlGetCodes+'/'+searchreq;
-    return this.http.get('./assets/codes.json')
+    let headers = new Headers({"Content-Type": "text/plain"});
+    return this.http.get(url, {headers: headers})
     .map(
       (res) => res.json()
     );
@@ -33,9 +34,9 @@ export class Searchcode {
 
   /*Search for codes by langage*/
   getCodesByLangage(langage:string, searchreq:string){
-    this.sreq = new SearchReq(searchreq, langage);
-    let url = this.userUrlGetCodesByLangage+'/'+JSON.stringify(this.sreq);
-    return this.http.get('./assets/codes.json')
+    let url = this.userUrlGetCodesByLangage+'/'+langage+" "+searchreq;
+    let headers = new Headers({"Content-Type": "text/plain"});
+    return this.http.get(url, {headers: headers})
     .map(
       (res) => res.json()
     );
