@@ -16,6 +16,7 @@ import { SeecodePage } from '../seecode/seecode';
 export class SearchjavaPage {
   public showSearchResult = false;
   public codes = [];
+  public code;
   iconsearch = "./assets/iconjava.png";
   iconoeil = "./assets/iconoeil.png";
   constructor(public navCtrl: NavController,
@@ -25,7 +26,7 @@ export class SearchjavaPage {
     console.log('ionViewDidLoad SearchjavaPage');
   }
   getCodesResult(searchreq){
-    let result = this.codeService.getCodesByLangage("java",searchreq);
+    let result = this.codeService.getCodesByLangage("java",searchreq.toLowerCase());
     this.showSearchResult = true;
     result.subscribe((data) => this.codes=data);
   }
@@ -33,8 +34,11 @@ export class SearchjavaPage {
     this.showSearchResult = false;
     this.codes = [];
   }
-  seeCode(codevalue:string, langagevalue:string){
+  seeCode(codevalue:string, codeId:number){
     this.reset();
-    this.navCtrl.push(SeecodePage, {code:codevalue, langage:langagevalue});
+    this.codeService.getCode(codeId).subscribe((data) => {
+      this.code = data;
+      this.navCtrl.push(SeecodePage, {code:codevalue, langage:this.code.langage.langage});
+    });
   }
 }

@@ -18,6 +18,7 @@ export class Searchcode {
   public options = new RequestOptions({ headers: this.headers });
   /*URLs*/
   private userUrlGetCodes = 'http://vps381611.ovh.net:8080/WTSAPI/search';
+  private userUrlGetCode = 'http://vps381611.ovh.net:8080/WTSAPI/codes'
   constructor(public http: Http) {
     console.log('Hello Searchcode Provider');
   }
@@ -38,4 +39,12 @@ export class Searchcode {
       (res) => res.json()
     );
   }
+
+  /*Get code by id*/
+getCode(codeId){
+  return this.http.get(this.userUrlGetCode+'/'+codeId, {headers: this.headers})
+  .map(
+    (res) => res.json()
+  )
+}
 }

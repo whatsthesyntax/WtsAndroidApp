@@ -15,10 +15,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <div class="mysearch form-style-4">
-    <label for="code">{{langage}}</label>
+  <div class="mysearch">
     <table>
-      <td><textarea name="field4" rows="5" cols="27" id="code" #newCodeSelect value="{{code}}" readonly></textarea></td>
+      <td>
+        <i class="pin"></i>
+            <blockquote class="note yellow" (click)="seeCode(code)">
+                <h2>{{langage}}</h2>
+                {{code}}
+              </blockquote>
+      </td>
     </table>
   </div>
 </ion-content>

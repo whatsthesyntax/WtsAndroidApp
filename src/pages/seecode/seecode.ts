@@ -12,15 +12,24 @@ import { NavController, NavParams } from 'ionic-angular';/*
 export class SeecodePage {
 
   public code:string="";
+  public codetoshow:string="";
   public langage:string="";
   logowts = "./assets/logo.png";
   constructor(public navCtrl: NavController,
     public navParams: NavParams) {}
 
   ionViewDidLoad() {
+
     console.log('ionViewDidLoad SeecodePage');
     this.code = this.navParams.get('code');
     this.langage = this.navParams.get('langage').toUpperCase();
+    for (let c of this.code){
+        if (c === '\n'){
+            this.codetoshow += "<br>";
+        }else{
+            this.codetoshow += c;
+        }
+    }
   }
 
 }
