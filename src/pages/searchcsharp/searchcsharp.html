@@ -2,7 +2,7 @@
 <table>
  <tr>
      <td><input type="image"  src={{iconsearch}} alt="Submit" (click)="getCodesResult(newTags.value); newTags.value=''" width="30" height="30"></td>
-     <td><input type="text" class="mytextsearch" #newTags placeholder="Recherchez une syntaxe en C# ..."></td>
+     <td><input type="text" class="mytextsearch" #newTags (keyup.enter)="getCodesResult(newTags.value); newTags.value=''"  placeholder="Recherchez une syntaxe en C# ..."></td>
  </tr>
 </table>
 <table>
